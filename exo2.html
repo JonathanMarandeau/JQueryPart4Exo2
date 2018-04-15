@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <script src="../jquery-3.3.1.min.js"></script>
+    <title>Exercice 2 Partie 4</title>
+  </head>
+  <body>
+    <h1>Formulaire pour connaitre votre moyenne</h1>
+    <!-- Création du formulaire pour rentrer les notes-->
+    <form id="formNote" method="post">
+      <label>Votre 1er note : </label><input type="text" name="1erNote" value="" placeholder="1er note" id="note1"><br />
+      <label>Votre 2eme note : </label><input type="text" name="2emeNote" value="" placeholder="2eme note" id="note2"><br />
+      <label>Votre 3eme note : </label><input type="text" name="3emeNote" value="" placeholder="3eme note" id="note3"><br />
+      <label>Votre 4eme note : </label><input type="text" name="4emeNote" value="" placeholder="4eme note" id="note4"><br />
+      <label>Votre 5eme note : </label><input type="text" name="5emeNote" value="" placeholder="5eme note" id="note5">
+    </form>
+      <!--Création du buton pour transmettre les données -->
+      <button type="button" id="buttonAverage" name="button">Votre Résulat</button>
+      <script>
+      $(function(){//On attends que la page soit chargé pour lancer la fonction
+          $('#buttonAverage').click(function(){//Fonction click au buton pour le résutat
+            //Création des variables pour chaque note entré par la personne
+            var firstNote = $('#note1').val();
+            var secondNote = $('#note2').val();
+            var thirdNote = $('#note3').val();
+            var fourthNote = $('#note4').val();
+            var fifthNote = $('#note5').val();
+            //Condition utilisateur pour qu'il ne rentre que des données chiffrées et inférieur ou égale a 20
+            if(Number.parseFloat(firstNote)<=20 && Number.parseFloat(secondNote)<=20 && Number.parseFloat(thirdNote)<=20 && Number.parseFloat(fourthNote)<=20 && Number.parseFloat(fifthNote)<=20);
+            //Variable pour le calcul des notes pour faire la moyenne
+            var average = (Number.parseFloat(firstNote) + Number.parseFloat(secondNote) + Number.parseFloat(thirdNote) + Number.parseFloat(fourthNote) + Number.parseFloat(fifthNote))/5;
+            if (average < 10){
+              alert('Vous avez ' + average + ' de moyenne. c\'est en dessous de la moyenne.');
+            }else if (average >= 10 && average < 13){
+              alert('Vous avez ' + average + ' de moyenne. c\'est moyen.');
+            }else if (average >= 13 && average < 16){
+              alert('Vous avez ' + average + ' de moyenne. c\'est bien.');
+            }else if (average >=16 && average <20){
+              alert('Vous avez ' + average + ' de moyenne. c\'est très bien.');
+            }else if (average == 20){
+              alert('Vous avez ' + average + ' de moyenne. c\'est excellent');
+            }
+          });
+      });
+      </script>
+  </body>
+</html>
